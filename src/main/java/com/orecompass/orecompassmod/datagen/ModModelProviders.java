@@ -19,8 +19,8 @@ public class ModModelProviders extends ModelProvider {
     @Override
     protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
         //items
-        itemModels.generateFlatItem(ModItems.IRON_COMPASS.get(), ModelTemplates.FLAT_ITEM);
-
+        //itemModels.generateFlatItem(ModItems.IRON_COMPASS.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateStandardCompassItem(ModItems.IRON_COMPASS.get());
         //blocks
     }
 }

@@ -1,6 +1,7 @@
 package com.orecompass.orecompassmod.item.Custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -11,9 +12,12 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 
 public class OreCompassClass extends Item {
+    private static final Component LODESTONE_COMPASS_NAME = Component.translatable("item.minecraft.lodestone_compass");
+
     public OreCompassClass(Properties properties) {
         super(properties);
     }
+
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
