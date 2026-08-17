@@ -24,6 +24,8 @@ public class ModCreativeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.IRON_COMPASS);
                         output.accept(ModItems.DIAMOND_COMPASS);
+                        output.accept(ModItems.GOLD_COMPASS);
+                        output.accept(ModItems.EMERALD_COMPASS);
                     })
                     .build()
     );

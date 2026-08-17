@@ -47,8 +47,8 @@ public class OreCompassClass extends Item {
         BlockPos currentClosestPos = null;
 
         for (int xx = - (int) vecList.x; xx <= (int) vecList.x; ++xx) {
-            for (int yy = - (int) vecList.x; yy <= (int) vecList.y; ++yy) {
-                for (int zz = - (int) vecList.x; zz <= (int) vecList.x; ++zz) {
+            for (int yy = - (int) vecList.y; yy <= (int) vecList.y; ++yy) {
+                for (int zz = - (int) vecList.z; zz <= (int) vecList.z; ++zz) {
 
                     BlockPos blockPos = pos.offset(xx, yy, zz);
                     BlockState blockstate = level.getBlockState(blockPos);
@@ -83,7 +83,7 @@ public class OreCompassClass extends Item {
         LodestoneTracker target = itemStack.get(DataComponents.LODESTONE_TRACKER);
         if (target != null && target.target().isPresent()) {
             BlockPos pos = target.target().get().pos();
-            builder.accept(Component.translatable("ore_compass_y" + pos.getY()));
+            builder.accept(Component.translatable("ore_compass_y", pos.getY()));
         }
         super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
     }

@@ -28,12 +28,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(Blocks.DIAMOND_ORE)
                 .add(Blocks.DEEPSLATE_DIAMOND_ORE);
 
-        tag(ModTags.Blocks.GOLD_COMPASS_DETECT)
+        tag(ModTags.Blocks.EMERALD_COMPASS_DETECT)
                 .add(Blocks.EMERALD_BLOCK)
                 .add(Blocks.EMERALD_ORE)
                 .add(Blocks.DEEPSLATE_EMERALD_ORE);
 
-        tag(ModTags.Blocks.EMERALD_COMPASS_DETECT)
+        tag(ModTags.Blocks.GOLD_COMPASS_DETECT)
                 .add(Blocks.GOLD_BLOCK)
                 .add(Blocks.GOLD_ORE)
                 .add(Blocks.DEEPSLATE_GOLD_ORE)

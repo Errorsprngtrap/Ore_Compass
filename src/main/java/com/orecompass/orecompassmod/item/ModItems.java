@@ -17,8 +17,8 @@ public class ModItems {
             "iron_compass",
             properties -> new OreCompassClass(
                     ModTags.Blocks.IRON_COMPASS_DETECT,
-                    new Vec3(20,20,20),
-                    properties.durability(10).stacksTo(1).useCooldown(10)
+                    new Vec3(30,30,30),
+                    properties.durability(40).stacksTo(1).useCooldown(60)
             )
     );
 
@@ -26,11 +26,28 @@ public class ModItems {
             "diamond_compass",
             properties -> new OreCompassClass(
                     ModTags.Blocks.DIAMOND_COMPASS_DETECT,
-                    new Vec3(20,20,20),
-                    properties.durability(10).stacksTo(1).useCooldown(10)
+                    new Vec3(50,50,50),
+                    properties.durability(25).stacksTo(1).useCooldown(40)
             )
     );
 
+    public static final DeferredItem<Item> GOLD_COMPASS = ITEMS.registerItem(
+            "gold_compass",
+            properties -> new OreCompassClass(
+                    ModTags.Blocks.GOLD_COMPASS_DETECT,
+                    new Vec3(60,30,60),
+                    properties.durability(15).stacksTo(1).useCooldown(25)
+            )
+    );
+
+    public static final DeferredItem<Item> EMERALD_COMPASS = ITEMS.registerItem(
+            "emerald_compass",
+            properties -> new OreCompassClass(
+                    ModTags.Blocks.EMERALD_COMPASS_DETECT,
+                    new Vec3(40,50,40),
+                    properties.durability(15).stacksTo(1).useCooldown(40)
+            )
+    );
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }
