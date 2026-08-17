@@ -107,9 +107,17 @@ public class OreCompassClass extends Item {
             int ry = Math.min(r, maxY);
             int rz = Math.min(r, maxZ);
 
-            for (int xx = -rx; xx <= rz; ++xx) {
-                for (int yy = -ry; yy <= rz; ++yy) {
+            for (int xx = -rx; xx <= rx; ++xx) {
+                for (int yy = -ry; yy <= ry; ++yy) {
                     for (int zz = -rz; zz <= rz; ++zz) {
+
+                        boolean inRadiusX = Math.abs(xx) == r;
+                        boolean inRadiusY = Math.abs(yy) == r;
+                        boolean inRadiusZ = Math.abs(zz) == r;
+
+                        if  (!inRadiusX && !inRadiusY && !inRadiusZ) {
+                            continue;
+                        }
 
                         BlockPos blockPos = pos.offset(xx, yy, zz);
                         BlockState blockstate = level.getBlockState(blockPos);
