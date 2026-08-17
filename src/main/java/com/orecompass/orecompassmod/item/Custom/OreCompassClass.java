@@ -6,21 +6,30 @@ import net.minecraft.core.GlobalPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.LodestoneTracker;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Optional;
+import java.util.function.Consumer;
 
 public class OreCompassClass extends Item {
 
-    public OreCompassClass(Properties properties) {
+    private final TagKey<Block> tagBlockList;
+
+    public OreCompassClass(TagKey<Block> tagBlockList, Properties properties) {
         super(properties);
+
+        this.tagBlockList = tagBlockList;
     }
 
 
@@ -36,7 +45,6 @@ public class OreCompassClass extends Item {
         BlockPos pos  = player.blockPosition();
         BlockPos currentClosestPos = null;
 
-
         for (int xx = - 20; xx <= 20; ++xx) {
             for (int yy = - 20; yy <= 20; ++yy) {
                 for (int zz = - 20; zz <= 20; ++zz) {
@@ -44,7 +52,7 @@ public class OreCompassClass extends Item {
                     BlockPos blockPos = pos.offset(xx, yy, zz);
                     BlockState blockstate = level.getBlockState(blockPos);
 
-                    if (blockstate.is(ModTags.Blocks.IRON_COMPASS_DETECT)) {
+                    if (blockstate.is(tagBlockList)) {
                         if (currentClosestPos == null) {
                             currentClosestPos = blockPos;
                         } else {
@@ -65,7 +73,17 @@ public class OreCompassClass extends Item {
             return InteractionResult.SUCCESS;
         }
 
-        System.out.println("Used");
         return InteractionResult.FAIL;
+    }
+
+
+    @Override
+    public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
+        LodestoneTracker target = itemStack.get(DataComponents.LODESTONE_TRACKER);
+        if (target != null && target.target().isPresent()) {
+            BlockPos pos = target.target().get().pos();
+            builder.accept(Component.translatable("ore_compass_y" + pos.getY()));
+        }
+        super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
     }
 }

@@ -2,6 +2,7 @@ package com.orecompass.orecompassmod.item;
 
 import com.orecompass.orecompassmod.OreCompassMod;
 import com.orecompass.orecompassmod.item.Custom.OreCompassClass;
+import com.orecompass.orecompassmod.tags.ModTags;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -14,6 +15,7 @@ public class ModItems {
     public static final DeferredItem<Item> IRON_COMPASS = ITEMS.registerItem(
             "iron_compass",
             properties -> new OreCompassClass(
+                    ModTags.Blocks.IRON_COMPASS_DETECT,
                     properties.durability(10).stacksTo(1).useCooldown(10)
             )
     );

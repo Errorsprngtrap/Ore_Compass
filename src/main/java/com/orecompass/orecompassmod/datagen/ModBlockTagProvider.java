@@ -18,6 +18,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         //here you put tags ect with tag add ect
         tag(ModTags.Blocks.IRON_COMPASS_DETECT)
-                .add(Blocks.IRON_BLOCK);
+                .add(Blocks.IRON_BLOCK)
+                .add(Blocks.RAW_IRON_BLOCK)
+                .add(Blocks.IRON_ORE)
+                .add(Blocks.DEEPSLATE_IRON_ORE);
     }
 }
