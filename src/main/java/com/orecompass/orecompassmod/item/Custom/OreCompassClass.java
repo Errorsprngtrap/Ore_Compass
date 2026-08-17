@@ -44,29 +44,6 @@ public class OreCompassClass extends Item {
 
         BlockPos pos  = player.blockPosition();
         BlockPos currentClosestPos = findClosestInShell(level,pos);
-//        BlockPos currentClosestPos = null;
-//
-//        for (int xx = - (int) vecList.x; xx <= (int) vecList.x; ++xx) {
-//            for (int yy = - (int) vecList.y; yy <= (int) vecList.y; ++yy) {
-//                for (int zz = - (int) vecList.z; zz <= (int) vecList.z; ++zz) {
-//
-//                    BlockPos blockPos = pos.offset(xx, yy, zz);
-//                    BlockState blockstate = level.getBlockState(blockPos);
-//
-//                    if (blockstate.is(tagBlockList)) {
-//                        if (currentClosestPos == null) {
-//                            currentClosestPos = blockPos;
-//                        } else {
-//                            double dist = pos.distSqr(blockPos);
-//                            if (pos.distSqr(currentClosestPos) > dist) {
-//                                currentClosestPos = blockPos;
-//                            }
-//                        }
-//                    }
-//
-//                }
-//            }
-//        }
 
         if (currentClosestPos != null) {
             LodestoneTracker target = new LodestoneTracker(Optional.of(GlobalPos.of(level.dimension(), currentClosestPos)), true);

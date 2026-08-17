@@ -1,7 +1,6 @@
 package com.orecompass.orecompassmod.item;
 
 import com.orecompass.orecompassmod.OreCompassMod;
-import com.orecompass.orecompassmod.item.Custom.OldOreCompassClass;
 import com.orecompass.orecompassmod.item.Custom.OreCompassClass;
 import com.orecompass.orecompassmod.tags.ModTags;
 import net.minecraft.world.item.Item;
