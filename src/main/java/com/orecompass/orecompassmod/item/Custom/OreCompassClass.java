@@ -31,24 +31,33 @@ public class OreCompassClass extends Item {
         }
 
         ItemStack itemStack = player.getItemInHand(hand);
-        LodestoneTracker tracker = (LodestoneTracker)itemStack.get(DataComponents.LODESTONE_TRACKER);
         itemStack.hurtAndBreak(1, player, hand.asEquipmentSlot());
 
         BlockPos pos  = player.blockPosition();
+        BlockPos currentClosestPos = null;
         for (int xx = - 20; xx <= 20; ++xx) {
             for (int yy = - 20; yy <= 20; ++yy) {
                 for (int zz = - 20; zz <= 20; ++zz) {
-                    System.out.println(xx + " " + yy + " " + zz);
                     BlockPos blockPos = pos.offset(xx, yy, zz);
                     BlockState blockstate = level.getBlockState(blockPos);
                     if (blockstate.is(ModTags.Blocks.IRON_COMPASS_DETECT)) {
-                        System.out.println("block found");
-                        LodestoneTracker target = new LodestoneTracker(Optional.of(GlobalPos.of(level.dimension(), blockPos)), true);
-                        itemStack.set(DataComponents.LODESTONE_TRACKER, target);
-                        return InteractionResult.SUCCESS;
+                        if (currentClosestPos == null) {
+                            currentClosestPos = blockPos;
+                        } else {
+                            double dist = pos.distSqr(blockPos);
+                            if (dist > currentClosestPos.distSqr(blockPos)) {
+                                currentClosestPos = blockPos;
+                            }
+                        }
                     }
                 }
             }
+        }
+
+        if (currentClosestPos != null) {
+            LodestoneTracker target = new LodestoneTracker(Optional.of(GlobalPos.of(level.dimension(), currentClosestPos)), true);
+            itemStack.set(DataComponents.LODESTONE_TRACKER, target);
+            return InteractionResult.SUCCESS;
         }
 
         System.out.println("Used");
