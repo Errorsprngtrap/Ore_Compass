@@ -20,12 +20,12 @@ import net.minecraft.world.phys.Vec3;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-public class OreCompassClass extends Item {
+public class OldOreCompassClass extends Item {
 
     private final TagKey<Block> tagBlockList;
     private final Vec3 vecList;
 
-    public OreCompassClass(TagKey<Block> tagBlockList, Vec3 vecList, Properties properties) {
+    public OldOreCompassClass(TagKey<Block> tagBlockList, Vec3 vecList, Properties properties) {
         super(properties);
 
         this.tagBlockList = tagBlockList;
@@ -43,30 +43,29 @@ public class OreCompassClass extends Item {
         itemStack.hurtAndBreak(1, player, hand.asEquipmentSlot());
 
         BlockPos pos  = player.blockPosition();
-        BlockPos currentClosestPos = findClosestInShell(level,pos);
-//        BlockPos currentClosestPos = null;
-//
-//        for (int xx = - (int) vecList.x; xx <= (int) vecList.x; ++xx) {
-//            for (int yy = - (int) vecList.y; yy <= (int) vecList.y; ++yy) {
-//                for (int zz = - (int) vecList.z; zz <= (int) vecList.z; ++zz) {
-//
-//                    BlockPos blockPos = pos.offset(xx, yy, zz);
-//                    BlockState blockstate = level.getBlockState(blockPos);
-//
-//                    if (blockstate.is(tagBlockList)) {
-//                        if (currentClosestPos == null) {
-//                            currentClosestPos = blockPos;
-//                        } else {
-//                            double dist = pos.distSqr(blockPos);
-//                            if (pos.distSqr(currentClosestPos) > dist) {
-//                                currentClosestPos = blockPos;
-//                            }
-//                        }
-//                    }
-//
-//                }
-//            }
-//        }
+        BlockPos currentClosestPos = null;
+
+        for (int xx = - (int) vecList.x; xx <= (int) vecList.x; ++xx) {
+            for (int yy = - (int) vecList.y; yy <= (int) vecList.y; ++yy) {
+                for (int zz = - (int) vecList.z; zz <= (int) vecList.z; ++zz) {
+
+                    BlockPos blockPos = pos.offset(xx, yy, zz);
+                    BlockState blockstate = level.getBlockState(blockPos);
+
+                    if (blockstate.is(tagBlockList)) {
+                        if (currentClosestPos == null) {
+                            currentClosestPos = blockPos;
+                        } else {
+                            double dist = pos.distSqr(blockPos);
+                            if (pos.distSqr(currentClosestPos) > dist) {
+                                currentClosestPos = blockPos;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
 
         if (currentClosestPos != null) {
             LodestoneTracker target = new LodestoneTracker(Optional.of(GlobalPos.of(level.dimension(), currentClosestPos)), true);
@@ -86,42 +85,5 @@ public class OreCompassClass extends Item {
             builder.accept(Component.translatable("ore_compass_y", pos.getY()));
         }
         super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
-    }
-
-    private BlockPos findClosestInShell(Level level, BlockPos pos) {
-        int maxX = (int) vecList.x;
-        int maxY = (int) vecList.y;
-        int maxZ = (int) vecList.z;
-
-        int maxRadius = maxX;
-        if (maxY > maxRadius) {
-            maxRadius = maxY;
-        }
-        if (maxZ > maxRadius) {
-            maxRadius = maxZ;
-        }
-
-        for (int r = 0; r <= maxRadius; ++r) {
-
-            int rx = Math.min(r, maxX);
-            int ry = Math.min(r, maxY);
-            int rz = Math.min(r, maxZ);
-
-            for (int xx = -rx; xx <= rz; ++xx) {
-                for (int yy = -ry; yy <= rz; ++yy) {
-                    for (int zz = -rz; zz <= rz; ++zz) {
-
-                        BlockPos blockPos = pos.offset(xx, yy, zz);
-                        BlockState blockstate = level.getBlockState(blockPos);
-
-                        if (blockstate.is(tagBlockList)) {
-                            return blockPos;
-                        }
-                    }
-                }
-            }
-
-        }
-        return null;
     }
 }
