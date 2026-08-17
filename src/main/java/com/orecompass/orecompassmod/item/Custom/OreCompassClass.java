@@ -35,21 +35,26 @@ public class OreCompassClass extends Item {
 
         BlockPos pos  = player.blockPosition();
         BlockPos currentClosestPos = null;
+
+
         for (int xx = - 20; xx <= 20; ++xx) {
             for (int yy = - 20; yy <= 20; ++yy) {
                 for (int zz = - 20; zz <= 20; ++zz) {
+
                     BlockPos blockPos = pos.offset(xx, yy, zz);
                     BlockState blockstate = level.getBlockState(blockPos);
+
                     if (blockstate.is(ModTags.Blocks.IRON_COMPASS_DETECT)) {
                         if (currentClosestPos == null) {
                             currentClosestPos = blockPos;
                         } else {
                             double dist = pos.distSqr(blockPos);
-                            if (dist > currentClosestPos.distSqr(blockPos)) {
+                            if (pos.distSqr(currentClosestPos) > dist) {
                                 currentClosestPos = blockPos;
                             }
                         }
                     }
+
                 }
             }
         }

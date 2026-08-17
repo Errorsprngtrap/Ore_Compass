@@ -14,7 +14,7 @@ public class ModItems {
     public static final DeferredItem<Item> IRON_COMPASS = ITEMS.registerItem(
             "iron_compass",
             properties -> new OreCompassClass(
-                    properties.durability(10).stacksTo(1).useCooldown(200)
+                    properties.durability(10).stacksTo(1).useCooldown(10)
             )
     );
 
