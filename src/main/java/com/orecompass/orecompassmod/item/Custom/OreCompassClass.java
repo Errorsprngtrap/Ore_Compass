@@ -1,11 +1,8 @@
 package com.orecompass.orecompassmod.item.Custom;
-
-import com.orecompass.orecompassmod.tags.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -18,18 +15,22 @@ import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
 public class OreCompassClass extends Item {
 
     private final TagKey<Block> tagBlockList;
+    private final Vec3 vecList;
 
-    public OreCompassClass(TagKey<Block> tagBlockList, Properties properties) {
+    public OreCompassClass(TagKey<Block> tagBlockList,Vec3 vecList, Properties properties) {
         super(properties);
 
         this.tagBlockList = tagBlockList;
+        this.vecList = vecList;
     }
 
 
@@ -45,9 +46,9 @@ public class OreCompassClass extends Item {
         BlockPos pos  = player.blockPosition();
         BlockPos currentClosestPos = null;
 
-        for (int xx = - 20; xx <= 20; ++xx) {
-            for (int yy = - 20; yy <= 20; ++yy) {
-                for (int zz = - 20; zz <= 20; ++zz) {
+        for (int xx = - (int) vecList.x; xx <= (int) vecList.x; ++xx) {
+            for (int yy = - (int) vecList.x; yy <= (int) vecList.y; ++yy) {
+                for (int zz = - (int) vecList.x; zz <= (int) vecList.x; ++zz) {
 
                     BlockPos blockPos = pos.offset(xx, yy, zz);
                     BlockState blockstate = level.getBlockState(blockPos);

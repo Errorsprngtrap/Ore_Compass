@@ -22,6 +22,8 @@ public class ModCreativeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(Items.ROTTEN_FLESH))
                     .title(Component.translatable("creativetabs.templatemod.test_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
+                        output.accept(ModItems.IRON_COMPASS);
+                        output.accept(ModItems.DIAMOND_COMPASS);
                     })
                     .build()
     );

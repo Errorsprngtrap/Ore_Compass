@@ -22,5 +22,22 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(Blocks.RAW_IRON_BLOCK)
                 .add(Blocks.IRON_ORE)
                 .add(Blocks.DEEPSLATE_IRON_ORE);
+
+        tag(ModTags.Blocks.DIAMOND_COMPASS_DETECT)
+                .add(Blocks.DIAMOND_BLOCK)
+                .add(Blocks.DIAMOND_ORE)
+                .add(Blocks.DEEPSLATE_DIAMOND_ORE);
+
+        tag(ModTags.Blocks.GOLD_COMPASS_DETECT)
+                .add(Blocks.EMERALD_BLOCK)
+                .add(Blocks.EMERALD_ORE)
+                .add(Blocks.DEEPSLATE_EMERALD_ORE);
+
+        tag(ModTags.Blocks.EMERALD_COMPASS_DETECT)
+                .add(Blocks.GOLD_BLOCK)
+                .add(Blocks.GOLD_ORE)
+                .add(Blocks.DEEPSLATE_GOLD_ORE)
+                .add(Blocks.RAW_GOLD_BLOCK);
+
     }
 }

@@ -21,6 +21,7 @@ public class ModModelProviders extends ModelProvider {
         //items
         //itemModels.generateFlatItem(ModItems.IRON_COMPASS.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateStandardCompassItem(ModItems.IRON_COMPASS.get());
+        itemModels.generateStandardCompassItem(ModItems.DIAMOND_COMPASS.get());
         //blocks
     }
 }
