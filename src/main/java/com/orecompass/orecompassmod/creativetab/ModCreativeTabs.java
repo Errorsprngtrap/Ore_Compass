@@ -19,7 +19,7 @@ public class ModCreativeTabs {
 
 
     public static final Supplier<CreativeModeTab> TEST_TAB = CREATIVE_MODE_TABS.register("test_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(Items.ROTTEN_FLESH))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.EMERALD_COMPASS.get()))
                     .title(Component.translatable("creativetabs.templatemod.test_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.IRON_COMPASS);

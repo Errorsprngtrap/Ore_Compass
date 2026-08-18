@@ -1,5 +1,12 @@
 {
-  "item.templatemod.test_item": "Test Item",
-  "block.templatemod.test_block": "Test Block",
-  "creativetabs.templatemod.test_tab" : "Test Tab",
+  "item.orecompassmod.iron_compass": "Iron Compass",
+  "item.orecompassmod.gold_compass": "Gold Compass",
+  "item.orecompassmod.emerald_compass": "Emerald Compass",
+  "item.orecompassmod.diamond_compass": "Diamond Compass",
+  "creativetabs.templatemod.test_tab" : "Ore Compass",
+  "orecompassmod.configuration.Diamond Compass Range" : "Diamond Compass Range",
+  "orecompassmod.configuration.Iron Compass Range" : "Iron Compass Range",
+  "orecompassmod.configuration.Gold Compass Range" : "Gold Compass Range",
+  "orecompassmod.configuration.Emerald Compass Range" : "Emerald Compass Range",
+  "ore_compass_y" : "Ore compass found ore at Y: %s"
 }

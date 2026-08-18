@@ -19,17 +19,20 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class OreCompassClass extends Item {
 
     private final TagKey<Block> tagBlockList;
     private final Vec3 vecList;
+    private final Supplier<Double> multiplierRange;
 
-    public OreCompassClass(TagKey<Block> tagBlockList, Vec3 vecList, Properties properties) {
+    public OreCompassClass(TagKey<Block> tagBlockList, Vec3 vecList,Supplier<Double> multiplierRange, Properties properties) {
         super(properties);
 
         this.tagBlockList = tagBlockList;
         this.vecList = vecList;
+        this.multiplierRange = multiplierRange;
     }
 
 
@@ -66,9 +69,11 @@ public class OreCompassClass extends Item {
     }
 
     private BlockPos findClosestInShell(Level level, BlockPos pos) {
-        int maxX = (int) vecList.x;
-        int maxY = (int) vecList.y;
-        int maxZ = (int) vecList.z;
+        double multiplier = multiplierRange.get();
+
+        int maxX = (int) (vecList.x * multiplier);
+        int maxY = (int) (vecList.y * multiplier);
+        int maxZ = (int) (vecList.z * multiplier);
 
         int maxRadius = maxX;
         if (maxY > maxRadius) {
