@@ -27,6 +27,10 @@ public class Config {
             .comment("Multiplier for the diamond compass range")
             .defineInRange("Diamond Compass Range", 1.0D, 0.0, 3.0);
 
+    public static final ModConfigSpec.DoubleValue NETHERITE_COMPASS = BUILDER
+            .comment("Multiplier for the netherite compass range")
+            .defineInRange("Netherite Compass Range", 1.0D, 0.0, 3.0);
+
 
     static final ModConfigSpec SPEC = BUILDER.build();
 

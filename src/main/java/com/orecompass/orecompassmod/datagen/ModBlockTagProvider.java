@@ -39,5 +39,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(Blocks.DEEPSLATE_GOLD_ORE)
                 .add(Blocks.RAW_GOLD_BLOCK);
 
+        tag(ModTags.Blocks.NETHERITE_COMPASS_DETECT)
+                .add(Blocks.NETHERITE_BLOCK)
+                .add(Blocks.ANCIENT_DEBRIS);
+
     }
 }

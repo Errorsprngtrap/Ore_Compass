@@ -74,6 +74,15 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('C', Items.COMPASS)
                 .unlockedBy("has_compass", has(Items.COMPASS))
                 .save(output);
+
+        shaped(RecipeCategory.MISC, ModItems.NETHERITE_COMPASS)
+                .pattern(" O ")
+                .pattern("OCO")
+                .pattern(" O ")
+                .define('O', Items.NETHERITE_INGOT)
+                .define('C', Items.COMPASS)
+                .unlockedBy("has_compass", has(Items.COMPASS))
+                .save(output);
     }
 
     @Override

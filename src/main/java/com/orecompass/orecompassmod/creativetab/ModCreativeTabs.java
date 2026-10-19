@@ -26,6 +26,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.DIAMOND_COMPASS);
                         output.accept(ModItems.GOLD_COMPASS);
                         output.accept(ModItems.EMERALD_COMPASS);
+                        output.accept(ModItems.NETHERITE_COMPASS);
                     })
                     .build()
     );

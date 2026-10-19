@@ -26,6 +26,7 @@ public class ModTags {
         public static final TagKey<Block> DIAMOND_COMPASS_DETECT = createTag("diamond_compass_detect");
         public static final TagKey<Block> GOLD_COMPASS_DETECT = createTag("gold_compass_detect");
         public static final TagKey<Block> EMERALD_COMPASS_DETECT = createTag("emerald_compass_detect");
+        public static final TagKey<Block> NETHERITE_COMPASS_DETECT = createTag("netherite_compass_detect");
 
 
         //that shit create the tags

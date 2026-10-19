@@ -53,6 +53,17 @@ public class ModItems {
                     properties.durability(15).stacksTo(1).useCooldown(40)
             )
     );
+
+    public static final DeferredItem<Item> NETHERITE_COMPASS = ITEMS.registerItem(
+            "netherite_compass",
+            properties -> new OreCompassClass(
+                    ModTags.Blocks.NETHERITE_COMPASS_DETECT,
+                    new Vec3(80,50,80),
+                    Config.NETHERITE_COMPASS,
+                    properties.durability(50).stacksTo(1).useCooldown(20)
+            )
+    );
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }
