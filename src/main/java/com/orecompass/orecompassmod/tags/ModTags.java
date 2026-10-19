@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.Block;
 public class ModTags {
     public static class  Items{
         //create tag example just below
-        //public static final TagKey<Item> IRON_COMPASS_DETECT = createTag("iron_compass_detect");
+        public static final TagKey<Item> RUBY_ITEM = createTag("ruby_item");
 
 
         //that shit create the tags
@@ -27,6 +27,7 @@ public class ModTags {
         public static final TagKey<Block> GOLD_COMPASS_DETECT = createTag("gold_compass_detect");
         public static final TagKey<Block> EMERALD_COMPASS_DETECT = createTag("emerald_compass_detect");
         public static final TagKey<Block> NETHERITE_COMPASS_DETECT = createTag("netherite_compass_detect");
+        public static final TagKey<Block> RUBY_COMPASS_DETECT = createTag("ruby_compass_detect");
 
 
         //that shit create the tags

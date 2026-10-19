@@ -4,6 +4,7 @@
   "item.orecompassmod.emerald_compass": "Emerald Compass",
   "item.orecompassmod.diamond_compass": "Diamond Compass",
   "item.orecompassmod.netherite_compass": "Netherite Compass",
+  "item.orecompassmod.ruby_compass": "Ruby Compass",
 
   "creativetabs.templatemod.test_tab" : "Ore Compass",
   "orecompassmod.configuration.Diamond Compass Range" : "Diamond Compass Range",
@@ -11,6 +12,7 @@
   "orecompassmod.configuration.Gold Compass Range" : "Gold Compass Range",
   "orecompassmod.configuration.Emerald Compass Range" : "Emerald Compass Range",
   "orecompassmod.configuration.Netherite Compass Range" : "Netherite Compass Range",
+  "orecompassmod.configuration.Ruby Compass Range" : "Ruby Compass Range",
 
   "ore_compass_y" : "Ore compass found ore at Y: %s"
 }

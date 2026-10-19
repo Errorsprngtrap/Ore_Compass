@@ -9,6 +9,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
@@ -27,6 +28,10 @@ public class ModCreativeTabs {
                         output.accept(ModItems.GOLD_COMPASS);
                         output.accept(ModItems.EMERALD_COMPASS);
                         output.accept(ModItems.NETHERITE_COMPASS);
+
+                        if(ModList.get().isLoaded("rubymod")) {
+                            output.accept(ModItems.RUBY_COMPASS);
+                        }
                     })
                     .build()
     );

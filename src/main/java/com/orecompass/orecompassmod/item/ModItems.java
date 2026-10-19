@@ -64,6 +64,16 @@ public class ModItems {
             )
     );
 
+    public static final DeferredItem<Item> RUBY_COMPASS = ITEMS.registerItem(
+            "ruby_compass",
+            properties -> new OreCompassClass(
+                    ModTags.Blocks.RUBY_COMPASS_DETECT,
+                    new Vec3(60,20,60),
+                    Config.RUBY_COMPASS,
+                    properties.durability(25).stacksTo(1).useCooldown(15)
+            )
+    );
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

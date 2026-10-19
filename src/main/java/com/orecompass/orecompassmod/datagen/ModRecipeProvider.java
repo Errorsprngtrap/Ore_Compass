@@ -2,17 +2,20 @@ package com.orecompass.orecompassmod.datagen;
 
 import com.orecompass.orecompassmod.OreCompassMod;
 import com.orecompass.orecompassmod.item.ModItems;
+import com.orecompass.orecompassmod.tags.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -79,10 +82,10 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern(" O ")
                 .pattern("OCO")
                 .pattern(" O ")
-                .define('O', Items.NETHERITE_INGOT)
+                .define('O', ModTags.Items.RUBY_ITEM)
                 .define('C', Items.COMPASS)
                 .unlockedBy("has_compass", has(Items.COMPASS))
-                .save(output);
+                .save(output.withConditions(new ModLoadedCondition("rubymod")));
     }
 
     @Override

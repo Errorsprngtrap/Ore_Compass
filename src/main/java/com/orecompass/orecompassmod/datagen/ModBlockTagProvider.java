@@ -4,6 +4,8 @@ import com.orecompass.orecompassmod.OreCompassMod;
 import com.orecompass.orecompassmod.tags.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.Identifier;
+import net.minecraft.tags.TagEntry;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 
@@ -43,5 +45,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(Blocks.NETHERITE_BLOCK)
                 .add(Blocks.ANCIENT_DEBRIS);
 
+        tag(ModTags.Blocks.RUBY_COMPASS_DETECT)
+                .add(TagEntry.optionalElement(Identifier.fromNamespaceAndPath("rubymod","ruby_ore")))
+                .add(TagEntry.optionalElement(Identifier.fromNamespaceAndPath("rubymod","ruby_block")))
+                .add(TagEntry.optionalElement(Identifier.fromNamespaceAndPath("rubymod","deepslate_ruby_ore")));
     }
 }
